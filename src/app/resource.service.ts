@@ -6,6 +6,7 @@ import {
   HttpRequest,
   HttpResponse,
 } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +14,8 @@ import {
 export class ResourceService {
   constructor(private HTTPClient) {}
 
+  prefix: String = BeBotServer.baseURL + '/api/';
+
   //TODO: implement requests to bebot server
+  //getPreviousStats():Observable
 }
