@@ -15,20 +15,20 @@ import { PredictionDetails } from 'src/data/predictionDetails';
   providedIn: 'root',
 })
 export class ResourceService {
-  constructor(private HTTPClient) {}
+  constructor(private http: HttpClient) {}
 
   prefix: String = BeBotServer.baseURL + '/api/';
 
   getPreviousStats(): Observable<PreviousStats> {
-    return this.HTTPClient.get(BeBotServer.baseURL + '/api/prevstats');
+    return this.http.get<PreviousStats>(BeBotServer.baseURL + '/api/prevstats');
   }
 
   getPredictions(): Observable<Prediction> {
-    return this.HTTPClient.get(BeBotServer.baseURL + '/api/predict');
+    return this.http.get<Prediction>(BeBotServer.baseURL + '/api/predict');
   }
 
   getDetailedPrediction(matchID: number): Observable<PredictionDetails> {
-    return this.HTTPClient.get(
+    return this.http.get<PredictionDetails>(
       BeBotServer.baseURL + '/api/' + matchID.toString() + '/detailpredict'
     );
   }
