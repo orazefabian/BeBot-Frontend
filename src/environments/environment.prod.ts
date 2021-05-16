@@ -4,5 +4,5 @@ export const environment = {
 
 // bebot server inside the docker container published on port 6969
 export const BeBotServer = {
-  baseURL: '192.168.8.99:6969',
+  baseURL: 'http://192.168.8.99:6969',
 };
