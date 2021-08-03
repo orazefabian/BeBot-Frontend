@@ -31,25 +31,25 @@ export class ResourceService {
 
   getDetailedPrediction(matchID: number): Observable<PredictionDetails> {
     return this.http.get<PredictionDetails>(
-      BeBotServer.baseURL + '/api/' + matchID.toString() + '/detailpredict'
+      BeBotServer.baseURL + '/api/detailpredict/' + matchID.toString()
     );
   }
 
   getHeadToHead(matchID: number): Observable<HeadToHead> {
     return this.http.get<HeadToHead>(
-      BeBotServer.baseURL + '/api/' + matchID.toString() + '/headtohead'
+      BeBotServer.baseURL + '/api/headtohead/' + matchID.toString()
     );
   }
 
   getAwayLastTen(matchID: number): Observable<LastTenStats> {
     return this.http.get<LastTenStats>(
-      BeBotServer.baseURL + '/api/' + matchID.toString() + '/awaylastten'
+      BeBotServer.baseURL + '/api/awaylastten/' + matchID.toString()
     );
   }
 
   getHomeLastTen(matchID: number): Observable<LastTenStats> {
     return this.http.get<LastTenStats>(
-      BeBotServer.baseURL + '/api/' + matchID.toString() + '/homelastten'
+      BeBotServer.baseURL + '/apihomelastten/' + matchID.toString() 
     );
   }
 }
