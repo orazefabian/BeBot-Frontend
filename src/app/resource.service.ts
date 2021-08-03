@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 import { PreviousStats } from 'src/data/previousStats';
 import { Prediction } from 'src/data/prediction';
 import { PredictionDetails } from 'src/data/predictionDetails';
+import { HeadToHead } from 'src/data/headtohead';
+import { LastTenStats } from 'src/data/lastTenStats';
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +32,24 @@ export class ResourceService {
   getDetailedPrediction(matchID: number): Observable<PredictionDetails> {
     return this.http.get<PredictionDetails>(
       BeBotServer.baseURL + '/api/' + matchID.toString() + '/detailpredict'
+    );
+  }
+
+  getHeadToHead(matchID: number): Observable<HeadToHead> {
+    return this.http.get<HeadToHead>(
+      BeBotServer.baseURL + '/api/' + matchID.toString() + '/headtohead'
+    );
+  }
+
+  getAwayLastTen(matchID: number): Observable<LastTenStats> {
+    return this.http.get<LastTenStats>(
+      BeBotServer.baseURL + '/api/' + matchID.toString() + '/awaylastten'
+    );
+  }
+
+  getHomeLastTen(matchID: number): Observable<LastTenStats> {
+    return this.http.get<LastTenStats>(
+      BeBotServer.baseURL + '/api/' + matchID.toString() + '/homelastten'
     );
   }
 }
